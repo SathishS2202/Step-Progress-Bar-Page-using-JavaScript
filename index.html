@@ -7,36 +7,56 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <div class="step-container">
-        <div class="step">
-            <div class="step-number">X</div>
-        </div>
-        <div class="step">
-            <div class="step-number">X</div>
-        </div>
-        <div class="step">
-            <div class="step-number">X</div>
-        </div>
-        <div class="step">
-            <div class="step-number">X</div>
-        </div>
-    </div>
-
     
-    <div class="btn">
-    <button onclick="nextStep()">Next Step</button>
+    <div class="container">
+        <h1>Step Progress-bar</h1>
+        <div class="progress-bar">
+            <div class="step active">✕</div>
+            <div class="line"></div>
+            <div class="step">✕</div>
+            <div class="line"></div>
+            <div class="step">✕</div>
+            <div class="line"></div>
+            <div class="step">✕</div>
+            <div class="line"></div>
+            <div class="step">✕</div>
+        </div>
+        <div class="buttons">
+            <button id="prevBtn">←</button>
+            <button id="nextBtn">→</button>
+        </div>
     </div>
-    <script>
-        let currentStep = 0;
 
-     function nextStep() {
-    const steps = document.querySelectorAll('.step');
-    if (currentStep < steps.length) {
-        steps[currentStep].classList.add('completed');
-        currentStep++;
-    }
+    <script>
+       let currentStep = 0;
+const steps = document.querySelectorAll('.step');
+
+function updateSteps() {
+    steps.forEach((step, i) => {
+        if (i <= currentStep) {
+            step.textContent = '✓';
+            step.classList.add('active');
+        } else {
+            step.textContent = '✕';
+            step.classList.remove('active');
+        }
+    });
 }
 
+document.getElementById('prevBtn').onclick = () => {
+    if (currentStep >= 0) {
+        currentStep--;
+        updateSteps();
+    }
+};
+
+document.getElementById('nextBtn').onclick = () => {
+    if (currentStep <= steps.length - 1) {
+        currentStep++;
+        updateSteps();
+    }
+};
+updateSteps();
     </script>
 </body>
 </html>
