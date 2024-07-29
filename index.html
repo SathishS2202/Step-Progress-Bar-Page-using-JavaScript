@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step Progress Bar</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="step-container">
+        <div class="step">
+            <div class="step-number">X</div>
+        </div>
+        <div class="step">
+            <div class="step-number">X</div>
+        </div>
+        <div class="step">
+            <div class="step-number">X</div>
+        </div>
+        <div class="step">
+            <div class="step-number">X</div>
+        </div>
+    </div>
+
+    
+    <div class="btn">
+    <button onclick="nextStep()">Next Step</button>
+    </div>
+    <script>
+        let currentStep = 0;
+
+     function nextStep() {
+    const steps = document.querySelectorAll('.step');
+    if (currentStep < steps.length) {
+        steps[currentStep].classList.add('completed');
+        currentStep++;
+    }
+}
+
+    </script>
+</body>
+</html>
