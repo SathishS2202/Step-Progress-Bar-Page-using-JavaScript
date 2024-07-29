@@ -5,71 +5,71 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
-    background-color: #ffd2d2;
+    background-color:honeydew
 }
-
-.step-container {
-    padding: 100px;
+.container {
+    text-align: center;
+    background-color:yellow;
+    padding: 20px;
+    width: 500px;
+    height: 200px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+.progress-bar {
     display: flex;
     justify-content: space-between;
-    width: 80%;
-    max-width: 600px;
-    margin-bottom: 20px;
+    align-items: center;
+    width: 100%;
+    margin-top: 50px;
 }
-
 .step {
-    position: relative;
-    text-align: center;
-    flex: 1;
-}
-
-.step-number {
-    background-color: #ccc;
-    color: #fff;
-    border-radius: 50%;
-    padding: 10px;
     width: 30px;
     height: 30px;
-    line-height: 30px;
-    margin: 0 auto;
+    border-radius: 50%;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    color: #ccc;
+    border: 2px solid #ccc;
 }
-
-.step-label {
-    margin-top: 5px;
+.step.active {
+    background-color: green;
+    border-color: #121312;
+    color: #fff;
 }
-
-.step-container::before {
-    content: "";
-    position: absolute;
-    top: 15px;
-    left: 0;
-    right: 0;
+.line {
+    flex-grow: 1;
     height: 2px;
     background-color: #ccc;
-    z-index: 0;
 }
-button{
-    padding: 20px;
-    color: white;
+.line.active {
+    background-color: #00ff00;
+}
+.buttons {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+}
+#prevBtn {
+    background-color:black;
+    color: #fff;
+}
+h1{
+    text-align: center;
+    color:black;
+}
+#nextBtn {
     background-color: blue;
-    display:inline-block;
-}
-.step-container .step:not(:last-child)::after {
-    content: "";
-    position: absolute;
-    top: 15px;
-    right: -50%;
-    height: 2px;
-    width: 100%;
-    background-color: #00a700;
-    z-index: -1;
-    transition: width 0.3s;
-}
-
-.step.completed .step-number {
-    background-color: #4caf50;
-}
-
-.step.completed + .step::after {
-    background-color: #4caf50;
+    color: #fff;
 }
